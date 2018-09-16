@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head></h:head>
+<h:body>
+
+	<p:layout fullPage="true">
+		<p:layoutUnit position="north" size="80">
+
+<h:outputText value="Bienvenue dns notre application"/>
+	
+		</p:layoutUnit>
+		<p:layoutUnit position="south" size="100">
+			<h:outputText value="Copyright 2012." />
+		</p:layoutUnit>
+		<p:layoutUnit position="west" size="200"
+			style="width:200;border-width:1px;">
+				<ui:include src="/Menu.xhtml"></ui:include>
+		</p:layoutUnit>
+		<p:layoutUnit position="east" size="200"
+			style="width:200;border-width:1px;">
+
+		</p:layoutUnit>
+		<p:layoutUnit position="center" style="width:200; border-width:0px;">
+	
+<h:form>
+<h:panelGrid columns="2">
+
+<p:inputText id="note" value="#{kpimoisManagedBean.kpiSupplier.note}" required="true" requiredMessage="Note kpimois est un champ obligatoire" />
+<h:outputText for="note" value="note kpimois" />
+
+ 
+
+ <p:calendar id="popup" value="#{kpimoisManagedBean.kpiSupplier.date}" />
+<h:outputText for="dateR" value="Date kpimois" />
+</h:panelGrid>
+
+
+ <p:selectOneMenu value="#{kpimoisManagedBean.kpiSupplier.kpi.idkpi}" >  
+                                <f:selectItem itemLabel="Select One" itemValue="" />  
+                                <f:selectItems value="#{kpiManagedBean.listekpi}" var="tag1"
+                                               itemLabel="#{tag1.description}" itemValue="#{tag1.idkpi}"/>  
+                            </p:selectOneMenu> 
+&nbsp;&nbsp;
+<h:outputText value="kpi" />
+<br></br>
+<p:selectOneMenu value="#{kpimoisManagedBean.kpiSupplier.fournisseur.idfrs}" >  
+                                <f:selectItem itemLabel="Select One" itemValue="" />  
+                                <f:selectItems value="#{fournisseurManagedBean.listefrs}" var="tag1"
+                                               itemLabel="#{tag1.nomfrs}" itemValue="#{tag1.idfrs}"/>  
+                            </p:selectOneMenu> 
+&nbsp;&nbsp;
+<h:outputText value="Fournisseur" />
+<br></br>
+
+<h:commandButton  value="ajouter" actionListener="#{kpimoisManagedBean.ajouter}"/>     
+      
+
+</h:form>
+			
+		</p:layoutUnit>
+	</p:layout>
+
+
+</h:body>
+
+
+</html>

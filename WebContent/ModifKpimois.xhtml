@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<h:body>
+
+	<p:layout fullPage="true">
+		<p:layoutUnit position="north" size="80">
+
+<h:outputText value="Bienvenue dns notre application"/>
+	
+		</p:layoutUnit>
+		<p:layoutUnit position="south" size="100">
+			<h:outputText value="Copyright 2012." />
+		</p:layoutUnit>
+		<p:layoutUnit position="west" size="200"
+			style="width:200;border-width:1px;">
+				<ui:include src="/Menu.xhtml"></ui:include>
+		</p:layoutUnit>
+		<p:layoutUnit position="east" size="200"
+			style="width:200;border-width:1px;">
+
+		</p:layoutUnit>
+		<p:layoutUnit position="center" style="width:200; border-width:0px;">
+<h:form>
+
+
+
+<h:panelGrid columns="3">
+<h:outputText value="id KpiSupplier" />
+<p:inputText id="idr" value="#{kpimoisManagedBean.selectedKpiSupplier.idkpisupplier}" required="true" requiredMessage="Id KpiMois est un champ obligatoire" />
+<h:message for="idr" style="color:red"/>
+<h:outputText value="Fournisseur" />
+
+<p:selectOneMenu id="idfrs" value="#{kpimoisManagedBean.selectedKpiSupplier.fournisseur.idfrs}" >  
+                                <f:selectItem itemLabel="Select One" itemValue="" />  
+                                <f:selectItems value="#{fournisseurManagedBean.listefrs}" var="tag"
+                                               itemLabel="#{tag.nomfrs}" itemValue="#{tag.idfrs}"/>  
+                            </p:selectOneMenu> 
+<h:message for="idfrs" style="color:red"/>
+<h:outputText value="Kpi" />
+<p:selectOneMenu id="idkpi" value="#{kpimoisManagedBean.selectedKpiSupplier.kpi.idkpi}" >  
+                                <f:selectItem itemLabel="Select One" itemValue="" />  
+                                <f:selectItems value="#{kpiManagedBean.listekpi}" var="tag1"
+                                               itemLabel="#{tag1.description}" itemValue="#{tag1.idkpi}"/>  
+                            </p:selectOneMenu> 
+<h:message for="idkpi" style="color:red"/>
+
+<h:outputText value="Date KPI Supplier" />
+<p:calendar id="dateR" value="#{kpimoisManagedBean.selectedKpiSupplier.date}" navigator="true" >
+ </p:calendar>
+<h:message for="dateR" style="color:red"/>
+<h:outputText value="Note" />
+<p:inputText id="note" value="#{kpimoisManagedBean.selectedKpiSupplier.note}" required="true" requiredMessage="Nb nuitee est un champ obligatoire"/>
+<h:message for="note" style="color:red"/>
+<h:commandButton  value="Modifier" actionListener="#{kpimoisManagedBean.modifier}"/>
+</h:panelGrid>
+
+</h:form>
+
+</p:layoutUnit>
+</p:layout>
+
+
+</h:body>
+
+
+
+
+
+
+
+
+
+
+
+</html>

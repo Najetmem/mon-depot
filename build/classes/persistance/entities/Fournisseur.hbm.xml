@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 14 sept. 2018 22:24:50 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="persistance.entities.Fournisseur" table="FOURNISSEUR">
+        <id name="idfrs" type="java.lang.Integer">
+            <column name="IDFRS" />
+            <generator class="identity" />
+        </id>
+        <property name="nomfrs" type="java.lang.String">
+            <column name="NOMFRS" />
+        </property>
+        <property name="mailContact" type="java.lang.String">
+            <column name="MAILCONTACT" />
+        </property>
+        <property name="adressefrs" type="java.lang.String">
+            <column name="ADRESSEFRS" />
+        </property>
+        <set name="kpisupplier" table="KPISUPPLIER" inverse="false" lazy="false">
+            <key>
+                <column name="IDFRS" />
+            </key>
+            <one-to-many class="persistance.entities.KpiSupplier" />
+        </set>
+    </class>
+</hibernate-mapping>

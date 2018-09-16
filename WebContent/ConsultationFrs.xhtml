@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head></h:head>
+<h:body>
+
+	<p:layout fullPage="true">
+		<p:layoutUnit position="north" size="80">
+
+<h:outputText value="Bienvenue dns notre application"/>
+	
+		</p:layoutUnit>
+		<p:layoutUnit position="south" size="100">
+			<h:outputText value="Copyright 2012." />
+		</p:layoutUnit>
+		<p:layoutUnit position="west" size="200"
+			style="width:200;border-width:1px;">
+			<ui:include src="/Menu.xhtml"></ui:include>
+		</p:layoutUnit>
+		<p:layoutUnit position="east" size="200"
+			style="width:200;border-width:1px;">
+
+		</p:layoutUnit>
+		<p:layoutUnit position="center" style="width:200; border-width:0px;">
+<h:form>
+
+
+<p:dataTable value="#{fournisseurManagedBean.listefrs}" var="frs" selection="#{fournisseurManagedBean.selectedfrs}" selectionMode="single" rowKey="#{frs.idfrs}">
+<p:column headerText="Id">
+<h:outputText value="#{frs.idfrs}" />
+</p:column>
+
+<p:column headerText="Nom">
+<h:outputText value="#{frs.nomfrs}"/>
+</p:column>
+
+<p:column headerText="Mail">
+<h:outputText value="#{frs.mailContact}"/>
+</p:column>
+
+<p:column headerText="Address">
+<h:outputText value="#{frs.adressefrs}"/>
+</p:column>
+<p:column headerText="supprimer"> 
+<h:commandButton actionListener="#{fournisseurManagedBean.supprimer}" value="supprimer" />
+</p:column>
+<p:column headerText="editer"> 
+<h:commandButton action="#{fournisseurManagedBean.editer}" value="editer" />
+</p:column>
+			
+</p:dataTable>
+</h:form>
+		</p:layoutUnit>
+	</p:layout>
+
+</h:body>
+
+
+
+
+
+</html>

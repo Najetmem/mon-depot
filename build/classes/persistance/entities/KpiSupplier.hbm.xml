@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 14 sept. 2018 22:24:50 by Hibernate Tools 3.4.0.CR1 -->
+
+<hibernate-mapping>
+
+
+	<class table="KPISUPPLIER" name="persistance.entities.KpiSupplier">
+
+
+		<id name="idkpisupplier" type="java.lang.Integer">
+
+			<column name="IDKPISUPPLIER" />
+
+			<generator class="identity" />
+
+		</id>
+
+
+		<many-to-one name="fournisseur" class="persistance.entities.Fournisseur"
+			fetch="join" lazy="false">
+
+			<column name="FOURNISSEUR" />
+
+		</many-to-one>
+
+
+		<many-to-one name="kpi" class="persistance.entities.Kpi"
+			fetch="join" lazy="false">
+
+			<column name="KPI" />
+
+		</many-to-one>
+
+
+		<property name="date" type="java.util.Date">
+
+			<column name="DATE" />
+
+		</property>
+
+
+		<property name="note" type="double">
+
+			<column name="NOTE" />
+
+		</property>
+
+	</class>
+
+</hibernate-mapping>

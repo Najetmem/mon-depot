@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" version="2.0">
+    <jsp:directive.page language="java"
+        contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" />
+    <jsp:text>
+        <![CDATA[ <?xml version="1.0" encoding="ISO-8859-1" ?> ]]>
+    </jsp:text>
+    <jsp:text>
+        <![CDATA[ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> ]]>
+    </jsp:text>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</h:head>
+<h:body>
+<p:panel id="liste" header="listefrs" style="margin-bottom:20px">
+<h:form>
+<p:dataTable value="#{fournisseurManagedBean.listefrs}" var="frs" selection="#{fournisseurManagedBean.selectedfrs}" selectionMode="single" rowKey="#{frs.idfrs}">
+<p:column headerText="Id">
+<h:outputText value="#{frs.idfrs}" />
+</p:column>
+
+<p:column headerText="Nom">
+<h:outputText value="#{frs.nomfrs}"/>
+</p:column>
+
+<p:column headerText="Mail">
+<h:outputText value="#{frs.mailContact}"/>
+</p:column>
+
+<p:column headerText="Address">
+<h:outputText value="#{frs.adressefrs}"/>
+</p:column>
+<p:column headerText="supprimer"> 
+<h:commandButton actionListener="#{fournisseurManagedBean.supprimer}" value="supprimer" />
+</p:column>
+<p:column headerText="editer"> 
+<h:commandButton action="#{fournisseurManagedBean.editer}" value="editer" />
+</p:column>
+			
+</p:dataTable>
+<p:chart type="bar" model="#{fournisseurManagedBean.barChart}" style="height:300px" />
+</h:form>
+</p:panel>
+</h:body>
+</html>
+</jsp:root>
